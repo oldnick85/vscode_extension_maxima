@@ -1,0 +1,25 @@
+{
+    "name": "maxima",
+    "displayName": "MAXIMA",
+    "description": "Maxima script language",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.69.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "maxima",
+            "aliases": ["MAXIMA", "maxima"],
+            "extensions": [".mac"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "maxima",
+            "scopeName": "source.maxima",
+            "path": "./syntaxes/maxima.tmLanguage.json"
+        }]
+    }
+}

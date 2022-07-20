@@ -1,0 +1,141 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "MAXIMA",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#number-dec"
+		},
+		{
+			"include": "#numbers-float"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.maxima",
+					"match": "\\b(if|then|else|elseif|for|thru|in|do|block|go|lambda)\\b"
+				},
+				{
+					"name": "support.function.maxima",
+					"match": "\\b(openw|opena|close|system|elapsed_run_time|elapsed_real_time|timedate)\\b"
+				},
+				{
+					"name": "support.function.maxima",
+					"match": "\\b(length|push|assoc|append)\\b"
+				},
+				{
+					"name": "support.function.maxima",
+					"match": "\\b(printf|slength|substring|sconcat|tokens|smake)\\b"
+				},
+				{
+					"name": "support.function.maxima",
+					"match": "\\b(divide|coeff|product)\\b"
+				},
+				{
+					"name": "support.function.maxima",
+					"match": "\\b(apply|subst)\\b"
+				},
+				{
+					"name": "support.function.maxima",
+					"match": "\\b(integerp|numberp|ratnump|atom)\\b"
+				},
+				{
+					"name": "constant.language.$0.maxima",
+					"match": "\\b(true|false)\\b"
+				},
+				{
+					"match": "\\b(%|\\*|\\/|-|\\+)\\b",
+					"name": "keyword.operator.maxima"
+				},
+				{
+					"match": "\\b(\\:=|:)\\b",
+					"name": "keyword.operator.maxima"
+				},
+				{
+					"match": "\\b(#|<=|>=|=|<|>)\\b",
+					"name": "keyword.operator.maxima"
+				},
+				{
+					"match": "\\b(and|or|not)\\b",
+					"name": "keyword.operator.logical.maxima"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.maxima",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.maxima",
+					"match": "\\\\."
+				}
+			]
+		},
+		"number-float": {
+            "name": "constant.numeric.float.maxima",
+            "match": "(?x)\n  (?<! \\w)(?:\n    (?:\n      \\.[0-9](?: _?[0-9] )*\n      |\n      [0-9](?: _?[0-9] )* \\. [0-9](?: _?[0-9] )*\n      |\n      [0-9](?: _?[0-9] )* \\.\n    ) (?: [eE][+-]?[0-9](?: _?[0-9] )* )?\n    |\n    [0-9](?: _?[0-9] )* (?: [eE][+-]?[0-9](?: _?[0-9] )* )\n  )([jJ])?\\b\n",
+            "captures": {
+                "1": {
+                    "name": "storage.type.imaginary.number.maxima"
+                }
+            }
+        },
+        "number-dec": {
+            "name": "constant.numeric.dec.maxima",
+            "match": "(?x)\n  (?<![\\w\\.])(?:\n      [1-9](?: _?[0-9] )*\n      |\n      0+\n      |\n      [0-9](?: _?[0-9] )* ([jJ])\n      |\n      0 ([0-9]+)(?![eE\\.])\n  )\\b\n",
+            "captures": {
+                "1": {
+                    "name": "storage.type.imaginary.number.maxima"
+                },
+                "2": {
+                    "name": "invalid.illegal.dec.maxima"
+                },
+                "3": {
+                    "name": "invalid.illegal.dec.maxima"
+                }
+            }
+        },
+		"comments": {
+			"patterns": [
+				{
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.maxima"
+						}
+					},
+					"match": "/\\*\\*/",
+					"name": "comment.block.empty.maxima"
+				},
+				{
+					"include": "#comments-inline"
+				}
+			]
+		},
+		"comments-inline": {
+			"patterns": [
+				{
+					"begin": "/\\*",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.maxima"
+						}
+					},
+					"end": "\\*/",
+					"name": "comment.block.maxima"
+				}
+			]
+		}
+	},
+	"scopeName": "source.maxima"
+}
