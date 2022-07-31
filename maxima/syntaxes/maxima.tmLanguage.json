@@ -31,11 +31,11 @@
 				},
 				{
 					"name": "support.function.maxima",
-					"match": "\\b(length|push|assoc|append)\\b"
+					"match": "\\b(length|push|assoc|append|args|op|error|warning)\\b"
 				},
 				{
 					"name": "support.function.maxima",
-					"match": "\\b(printf|slength|substring|sconcat|tokens|smake)\\b"
+					"match": "\\b(printf|slength|substring|sconcat|tokens|smake|sremove)\\b"
 				},
 				{
 					"name": "support.function.maxima",
@@ -47,7 +47,11 @@
 				},
 				{
 					"name": "support.function.maxima",
-					"match": "\\b(integerp|numberp|ratnump|atom)\\b"
+					"match": "\\b(integerp|numberp|ratnump|atom|stringp|listp)\\b"
+				},
+				{
+					"name": "support.function.maxima",
+					"match": "\\b(is|equal|and|or|not)\\b"
 				},
 				{
 					"name": "constant.language.$0.maxima",
